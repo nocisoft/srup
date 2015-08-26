@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SRUPMainWindow</class>
+ <widget class="QWidget" name="SRUPMainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>723</width>
+    <height>426</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SRUP (Sql Result Uploader)</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tabUpload">
+      <attribute name="icon">
+       <iconset resource="srup.qrc">
+        <normaloff>:/images/computer_go.png</normaloff>:/images/computer_go.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>Upload</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QGroupBox" name="gbTarget">
+         <property name="title">
+          <string>Target files</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayoutTarget">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Target result file:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="NSFileSelect" name="selectTxtFile" native="true"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_13">
+            <property name="text">
+             <string>Target ZIP file:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="NSFileSelect" name="selectZipFile" native="true"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="gbRun">
+         <property name="title">
+          <string>Running options</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QCheckBox" name="cbRun">
+            <property name="text">
+             <string>Run SQL query to result file</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="cbCreateZIP">
+            <property name="text">
+             <string>Create .ZIP file</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="cbUpload">
+            <property name="text">
+             <string>Upload .ZIP file</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="vsp">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>100</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="lblProgress">
+         <property name="text">
+          <string>Upload status:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QProgressBar" name="progressBar">
+         <property name="format">
+          <string>%v/%m (%p%)</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabQuery">
+      <attribute name="icon">
+       <iconset resource="srup.qrc">
+        <normaloff>:/images/database_refresh.png</normaloff>:/images/database_refresh.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>SQL query</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="NCRDSqlTextEdit" name="textEditQuery"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabSubQuery">
+      <attribute name="icon">
+       <iconset resource="srup.qrc">
+        <normaloff>:/images/database_refresh.png</normaloff>:/images/database_refresh.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>SQL subquery</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="NCRDSqlTextEdit" name="textEditSubQuery"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabSettings">
+      <attribute name="icon">
+       <iconset resource="srup.qrc">
+        <normaloff>:/images/cog.png</normaloff>:/images/cog.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>Settings</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QGroupBox" name="gbSql">
+         <property name="title">
+          <string>SQL connection</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="1">
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>Driver:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Host:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Database:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>Username:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="5">
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string>Password:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLineEdit" name="leDBHost"/>
+          </item>
+          <item row="1" column="3">
+           <widget class="QLineEdit" name="leDBDatabase"/>
+          </item>
+          <item row="1" column="4">
+           <widget class="QLineEdit" name="leDBUser"/>
+          </item>
+          <item row="1" column="5">
+           <widget class="QLineEdit" name="leDBPassword">
+            <property name="echoMode">
+             <enum>QLineEdit::Password</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="comboDBDriver">
+            <item>
+             <property name="text">
+              <string>QMYSQL</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>QPSQL</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>QSQLITE</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>QSQLITE2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>QIBASE</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>QOCI</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>QDB2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>QODBC</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>QTDS</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="gbFtp">
+         <property name="title">
+          <string>Ftp settings</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2" columnstretch="0,5,0,0">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string>Ftp server:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="leFtpServer"/>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="label_11">
+            <property name="text">
+             <string>Username:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QLineEdit" name="leUsername"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_10">
+            <property name="text">
+             <string>Remote directory:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="leRemoteDir"/>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLabel" name="label_12">
+            <property name="text">
+             <string>Password:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QLineEdit" name="lePassword">
+            <property name="echoMode">
+             <enum>QLineEdit::Password</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="gbOut">
+         <property name="title">
+          <string>Output settings</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Column delimiter:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboDelim">
+            <item>
+             <property name="text">
+              <string>Tab</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Semicolon</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Comma</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Vertical Bar</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Character encoding:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="leEncoding"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>ZIP command</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QLineEdit" name="leZIP"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="layBtn">
+     <item>
+      <widget class="QPushButton" name="btnStart">
+       <property name="text">
+        <string>Start</string>
+       </property>
+       <property name="icon">
+        <iconset resource="srup.qrc">
+         <normaloff>:/images/accept.png</normaloff>:/images/accept.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnAbort">
+       <property name="text">
+        <string>Abort</string>
+       </property>
+       <property name="icon">
+        <iconset resource="srup.qrc">
+         <normaloff>:/images/stop.png</normaloff>:/images/stop.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnClose">
+       <property name="text">
+        <string>Close</string>
+       </property>
+       <property name="icon">
+        <iconset resource="srup.qrc">
+         <normaloff>:/images/close.png</normaloff>:/images/close.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="vsp2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>NSFileSelect</class>
+   <extends>QWidget</extends>
+   <header>nsfileselect.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>NCRDSqlTextEdit</class>
+   <extends>QTextEdit</extends>
+   <header>ncrdsqltextedit.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>cbRun</tabstop>
+  <tabstop>cbCreateZIP</tabstop>
+  <tabstop>cbUpload</tabstop>
+  <tabstop>textEditQuery</tabstop>
+  <tabstop>comboDBDriver</tabstop>
+  <tabstop>leDBHost</tabstop>
+  <tabstop>leDBDatabase</tabstop>
+  <tabstop>leDBUser</tabstop>
+  <tabstop>leDBPassword</tabstop>
+  <tabstop>leFtpServer</tabstop>
+  <tabstop>leRemoteDir</tabstop>
+  <tabstop>leUsername</tabstop>
+  <tabstop>lePassword</tabstop>
+  <tabstop>comboDelim</tabstop>
+  <tabstop>leEncoding</tabstop>
+  <tabstop>leZIP</tabstop>
+  <tabstop>btnStart</tabstop>
+  <tabstop>btnAbort</tabstop>
+  <tabstop>btnClose</tabstop>
+ </tabstops>
+ <resources>
+  <include location="srup.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>btnClose</sender>
+   <signal>clicked()</signal>
+   <receiver>SRUPMainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>622</x>
+     <y>89</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>337</x>
+     <y>171</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
